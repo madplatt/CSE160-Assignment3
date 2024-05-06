@@ -9,31 +9,22 @@
         <div class="intro">
             <b>Max Platt</b> <br>
             <b>madplatt@ucsc.edu</b> <br> <br>
+            <b>Notes to Grader: Simple click and slider rotation still exist for demo purposes.</b> <br>
+            <b>2 Textures, "diamond.jpg" and "tiles.jpg"</b> <br> <br>
         </div>
         <canvas id="webgl" width="400" height="400">
             Please use the browser supporting "canvas".
         </canvas>
         <br> <br>
-        <label for="camSlider">Camera Angle: </label>
+        <label for="camSlider">World Rotation: </label>
         <input type="range" id="camSlider" name="cam" min="0.0" max="360.0" value="80.0" />
         <br>
-        <label for="j1Slider">Joint 1 (Curvature): </label>
-        <input type="range" id="j1Slider" name="j1" min="0.0" max="25.0" value="0.0" />
-        <br>
-        <label for="j2Slider">Joint 2 (Sway): </label>
-        <input type="range" id="j2Slider" name="j2" min="1.0" max="5.0" value="0.0" step=".02"/>
-        <br>
-        <input type="button" id="toggleButton" value="Toggle Anim" size="15" />
         <script src="../lib/webgl-utils.js"></script>
         <script src="../lib/webgl-debug.js"></script>
         <script src="../lib/cuon-utils.js"></script>
         <script src="../lib/cuon-matrix-cse160.js"></script>
-        <script src="BlockyAnimal.js"></script>
+        <script src="BlockWorld.js"></script>
         <script src="Cube.js"></script>
-        <script src="ConeFrustum.js"></script>
-        <script src="TriPrism.js"></script>
-        <script src="Snake.js"></script>
-        <script src="Cylinder.js"></script>
 
     </body>
 </html>

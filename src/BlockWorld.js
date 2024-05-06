@@ -40,14 +40,6 @@ var FSHADER_SOURCE = `
 // Global Variables
 let canvas;
 let gl;
-let ANIM_1 = 1;
-let ANIM_2 = 2;
-let ONE_COLOR = -2;
-let INTERP_COLOR = -1;
-let TEX_0 = 0;
-let TEX_1 = 1;
-let TEX_2 = 2;
-
 
 let u_TexSelect;
 let a_Position;
@@ -62,8 +54,6 @@ var g_objList = [];
 var g_globalAngleX = 0;
 var g_globalAngleY = 0;
 var g_animDisabled = false;
-var g_j1Angle = 0;
-var g_j2Angle = 1;
 var g_startTime = performance.now()/1000.0;
 var g_secondsPassed = performance.now()/1000.0 - g_startTime;
 var g_fps;
@@ -75,15 +65,13 @@ function main() {
     setupHTMLElements();
     
     canvas.onmousedown = function(ev){ clickRotate(ev) }
-    //canvas.onmousemove = function(ev){ click(ev) }
     initTextures(gl,0);
     // Set the color for clearing <canvas>
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
     // Clear <canvas>
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    //var snake = new Snake();
-    //g_objList.push(snake);
+
     var cube = new Cube(-1);
     cube.matrix.setTranslate(.5,-.4,0);
     cube.matrix.scale(.5,.5,.5);
@@ -220,28 +208,6 @@ function setupHTMLElements() {
         return;
     }
     camSlider.addEventListener("mousemove", function() {g_globalAngleX = this.value; });
-
-    const j1Slider = document.getElementById("j1Slider");
-    if (!j1Slider) {
-        console.log('Failed to retrieve the j1Slider element');
-        return;
-    }
-    j1Slider.addEventListener("mousemove", function() {g_j1Angle = this.value; });
-
-    const j2Slider = document.getElementById("j2Slider");
-    if (!j2Slider) {
-        console.log('Failed to retrieve the j2Slider element');
-        return;
-    }
-    j2Slider.addEventListener("mousemove", function() {g_j2Angle = this.value; });
-
-    const toggleButton = document.getElementById("toggleButton");
-    if (!toggleButton) {
-        console.log('Failed to retrieve the toggleButton element');
-        return;
-    }
-    toggleButton.addEventListener("click", function() {g_animDisabled = !(g_animDisabled); });
-
 }
 
 function clickRotate(ev) {
